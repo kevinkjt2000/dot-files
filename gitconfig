@@ -1,0 +1,9 @@
+[user]
+  email = kevinkjt2000@gmail.com
+  name = Kevin Tindall
+
+[github]
+  user = kevinkjt2000
+
+[core]
+  editor = nvim
