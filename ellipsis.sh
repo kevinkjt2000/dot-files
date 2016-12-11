@@ -4,13 +4,13 @@
 
 pkg.link() {
   fs.link_file gitconfig
-  mkdir -p ~/.xmonad
-  fs.link_file xmonad/xmonad.hs ~/.xmonad/xmonad.hs
+  mkdir -p "$ELLIPSIS_HOME/.xmonad"
+  fs.link_file xmonad/xmonad.hs "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
 }
 
 pkg.links() {
   msg.bold "${1:-$PKG_NAME}"
-  local files="~/.gitconfig ~/.xmonad/xmonad.hs"
+  local files="$ELLIPSIS_HOME/.gitconfig $ELLIPSIS_HOME/.xmonad/xmonad.hs"
   for file in $files; do
     local link="$(readlink "$file")"
     echo "$(path.relative_to_packages "$link") -> $(path.relative_to_home "$file")";
@@ -18,7 +18,7 @@ pkg.links() {
 }
 
 pkg.unlink() {
-  rm "~/.xmonad/xmonad.hs"
+  rm "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
   hooks.unlink
 }
 
