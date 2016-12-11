@@ -1,5 +1,8 @@
 import XMonad
 
 main = do
-  xmonad def { terminal = "st" }
+  xmonad def
+    { terminal = "st"
+    , modMask = mod4Mask
+    }
 
