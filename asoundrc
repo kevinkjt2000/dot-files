@@ -1,0 +1,25 @@
+# ALSA library configuration file
+
+# Include settings that are under the control of asoundconf(1).
+# (To disable these settings, comment out this line.)
+#</home/kevin/.asoundrc.asoundconf>
+pcm.usb
+{
+  type hw
+  card C615
+}
+
+pcm.!default
+{
+  type asym
+  playback.pcm
+  {
+    type hw
+    card PCH
+  }
+  capture.pcm
+  {
+    type plug
+    slave.pcm "usb"
+  }
+}
