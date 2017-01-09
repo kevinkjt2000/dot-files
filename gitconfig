@@ -7,3 +7,12 @@
 
 [core]
   editor = nvim
+
+[alias]
+  aa = add --all
+  amend = commit --ammend
+  co = checkout
+  ci = commit
+  dc = diff --cached
+  glog = reflog --show
+  pullff = pull --ff-only
