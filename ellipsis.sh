@@ -3,7 +3,9 @@
 # kevinkjt2000/files ellipsis package
 
 pkg.link() {
-  fs.link_file asoundrc
+  if [ $(hostname) = "Toxicity" ]; then
+    fs.link_file asoundrc
+  fi
   fs.link_file gitconfig
   mkdir -p "$ELLIPSIS_HOME/.xmonad"
   fs.link_file xmonad/xmonad.hs "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
@@ -11,7 +13,10 @@ pkg.link() {
 
 pkg.links() {
   msg.bold "${1:-$PKG_NAME}"
-  local files=".asoundrc .gitconfig .xmonad/xmonad.hs"
+  local files=".gitconfig .xmonad/xmonad.hs"
+  if [ $(hostname) = "Toxicity" ]; then
+    files+=" .asoundrc"
+  fi
   for file in $files; do
     local file="$ELLIPSIS_HOME/$file"
     local link="$(readlink "$file")"
