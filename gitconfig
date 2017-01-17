@@ -10,7 +10,7 @@
 
 [alias]
   aa = add --all
-  amend = commit --ammend
+  amend = commit --amend
   co = checkout
   ci = commit
   dc = diff --cached
