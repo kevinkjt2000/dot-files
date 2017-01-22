@@ -9,11 +9,13 @@ pkg.link() {
   fs.link_file gitconfig
   mkdir -p "$ELLIPSIS_HOME/.xmonad"
   fs.link_file xmonad/xmonad.hs "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
+  mkdir -p "$ELLIPSIS_HOME/.config/openbox"
+  fs.link_file config/openbox/lxde-rc.xml "$ELLIPSIS_HOME/.config/openbox/lxde-rc.xml"
 }
 
 pkg.links() {
   msg.bold "${1:-$PKG_NAME}"
-  local files=".gitconfig .xmonad/xmonad.hs"
+  local files=".gitconfig .xmonad/xmonad.hs .config/openbox/lxde-rc.xml"
   if [ $(hostname) = "Toxicity" ]; then
     files+=" .asoundrc"
   fi
@@ -25,6 +27,7 @@ pkg.links() {
 }
 
 pkg.unlink() {
+  rm "$ELLIPSIS_HOME/.config/openbox/lxde-rc.xml"
   rm "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
   hooks.unlink
 }
