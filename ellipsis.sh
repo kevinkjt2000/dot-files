@@ -11,6 +11,7 @@ pkg.link() {
   fs.link_file xmonad/xmonad.hs "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
   mkdir -p "$ELLIPSIS_HOME/.config/openbox"
   fs.link_file config/openbox/lxde-rc.xml "$ELLIPSIS_HOME/.config/openbox/lxde-rc.xml"
+  fs.link_file config/gitignore_global "$ELLIPSIS_HOME/.config/gitignore_global"
 	fs.link_file emacs
 }
 
