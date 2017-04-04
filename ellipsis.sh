@@ -20,6 +20,7 @@ pkg.link() {
 	fs.link_file config/git/template/hooks/post-commit "$ELLIPSIS_HOME/.config/git/template/hooks/post-commit"
 	fs.link_file config/git/template/hooks/post-merge "$ELLIPSIS_HOME/.config/git/template/hooks/post-merge"
 	fs.link_file config/git/template/hooks/post-rewrite "$ELLIPSIS_HOME/.config/git/template/hooks/post-rewrite"
+	fs.link_file xinitrc
 }
 
 pkg.links() {
@@ -30,7 +31,7 @@ pkg.links() {
 		files+=" .$f"
 	done
 	if [ $(hostname) = "Toxicity" ]; then
-		files+=" .asoundrc"
+		files+=" .asoundrc xinitrc"
 	fi
 	for file in $files; do
 		local file="$ELLIPSIS_HOME/$file"
