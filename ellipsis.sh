@@ -21,12 +21,14 @@ pkg.link() {
 	fs.link_file config/git/template/hooks/post-merge "$ELLIPSIS_HOME/.config/git/template/hooks/post-merge"
 	fs.link_file config/git/template/hooks/post-rewrite "$ELLIPSIS_HOME/.config/git/template/hooks/post-rewrite"
 	fs.link_file xinitrc
+	mkdir -p "$ELLIPSIS_HOME/.config/fontconfig"
+	fs.link_file config/fontconfig/fonts.conf "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
 }
 
 pkg.links() {
 	msg.bold "${1:-$PKG_NAME}"
 	local files=".gitconfig .xmonad/xmonad.hs .config/openbox/lxde-rc.xml .emacs"
-	files+=" .config/gitignore_global .ctags"
+	files+=" .config/gitignore_global .ctags .config/fontconfig/fonts.conf"
 	for f in "config/git/template/hooks/*"; do
 		files+=" .$f"
 	done
@@ -49,6 +51,7 @@ pkg.unlink() {
 	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-commit"
 	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-merge"
 	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-rewrite"
+	rm "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
 	hooks.unlink
 }
 
