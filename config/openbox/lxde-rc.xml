@@ -285,7 +285,7 @@
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>st -g 170x60 -t "tmux" sh -c "tmux attach || tmux"</command>
+        <command>st -g 182x58 -f "Mono:size=11" -t "tmux" sh -c "tmux attach || tmux"</command>
       </action>
     </keybind>
     <!--keybindings for LXPanel -->
