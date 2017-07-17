@@ -6,7 +6,7 @@
 pcm.usb
 {
   type hw
-  card C615
+  card Microphone
 }
 
 pcm.!default
