@@ -16,6 +16,7 @@
  ;; If there is more than one, they won't work right.
  '(inhibit-startup-screen t)
  '(agda2-fontset-name nil) ;; coerce agda to use the default emacs font
+ '(package-selected-packages (quote (markdown-mode haskell-mode)))
  )
 
 (require 'package)
