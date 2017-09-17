@@ -24,6 +24,7 @@ pkg.link() {
 	mkdir -p "$ELLIPSIS_HOME/.config/fontconfig"
 	fs.link_file config/fontconfig/fonts.conf "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
 	fs.link_file hgrc
+	fs.link_file nvidia-settings-rc
 }
 
 pkg.links() {
@@ -35,7 +36,7 @@ pkg.links() {
 		files+=" .$f"
 	done
 	if [ $(hostname) = "Toxicity" ]; then
-		files+=" .asoundrc xinitrc"
+		files+=" .asoundrc .xinitrc .nvidia-settings-rc"
 	fi
 	for file in $files; do
 		local file="$ELLIPSIS_HOME/$file"
