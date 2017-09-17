@@ -5,6 +5,7 @@ username = Kevin Tindall <kevinkjt2000@gmail.com>
 progress =
 color =
 hgext.extdiff =
+record =
 
 [extdiff]
 cmd.meld =
