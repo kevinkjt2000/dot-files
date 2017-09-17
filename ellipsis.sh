@@ -23,12 +23,14 @@ pkg.link() {
 	fs.link_file xinitrc
 	mkdir -p "$ELLIPSIS_HOME/.config/fontconfig"
 	fs.link_file config/fontconfig/fonts.conf "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
+	fs.link_file hgrc
 }
 
 pkg.links() {
 	msg.bold "${1:-$PKG_NAME}"
 	local files=".gitconfig .xmonad/xmonad.hs .config/openbox/lxde-rc.xml .emacs"
 	files+=" .config/gitignore_global .ctags .config/fontconfig/fonts.conf"
+	files+=" .hgrc"
 	for f in "config/git/template/hooks/*"; do
 		files+=" .$f"
 	done
