@@ -22,5 +22,5 @@
 [init]
   templatedir = ~/.config/git/template
 
-[includeIf "gitdir:~/repos/work"]
+[includeIf "gitdir:~/repos/work/"]
   path = ~/repos/work/.gitconfig
