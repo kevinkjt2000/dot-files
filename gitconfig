@@ -28,3 +28,6 @@
 
 [includeIf "gitdir:~/repos/work/"]
   path = ~/repos/work/.gitconfig
+
+[includeIf "gitdir:~/.ellipsis/packages/work-files/"]
+  path = ~/repos/work/.gitconfig
