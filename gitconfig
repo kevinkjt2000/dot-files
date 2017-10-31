@@ -6,6 +6,9 @@
 [github]
   user = kevinkjt2000
 
+[commit]
+  gpgsign = true
+
 [core]
   editor = nvim
   excludesfile = ~/.config/gitignore_global
