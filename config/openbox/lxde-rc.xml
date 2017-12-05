@@ -274,6 +274,9 @@
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
+    <keybind key="W-F11">
+      <action name="Reconfigure"/>
+    </keybind>
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
