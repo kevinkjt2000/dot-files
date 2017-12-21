@@ -18,7 +18,7 @@
   amend = commit --amend
   co = checkout
   ci = commit
-  ctags = !.git/hooks/ctags
+  ctags = "!${GIT_DIR}/hooks/ctags"
   dc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   pullff = pull --ff-only
