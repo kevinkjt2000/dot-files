@@ -28,13 +28,14 @@ pkg.link() {
 	fs.link_file rvmrc
 	fs.link_file gemrc
 	fs.link_file toprc
+	fs.link_file pylintrc
 }
 
 pkg.links() {
 	msg.bold "${1:-$PKG_NAME}"
 	local files=".gitconfig .xmonad/xmonad.hs .config/openbox/lxde-rc.xml .emacs"
 	files+=" .config/gitignore_global .ctags .config/fontconfig/fonts.conf"
-	files+=" .hgrc .rvmrc .gemrc .toprc"
+	files+=" .hgrc .rvmrc .gemrc .toprc .pylintrc"
 	for f in "config/git/template/hooks/*"; do
 		files+=" .$f"
 	done
