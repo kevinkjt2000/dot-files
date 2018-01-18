@@ -1,2 +1,6 @@
 [TYPECHECK]
 ignored-classes= responses
+
+[MESSAGES CONTROL]
+disable=missing-docstring
+disable=missing-final-newline
