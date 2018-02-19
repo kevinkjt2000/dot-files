@@ -21,7 +21,8 @@
   ctags = "!${GIT_DIR}/hooks/ctags"
   dc = diff --cached
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-  pullff = pull --ff-only
+  mff = merge --ff-only
+  pff = pull --ff-only
 
 [init]
   templatedir = ~/.config/git/template
