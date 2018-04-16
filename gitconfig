@@ -33,3 +33,7 @@
 
 [includeIf "gitdir:~/.ellipsis/packages/work-files/"]
   path = ~/repos/work/.gitconfig
+
+[rerere]
+  autoupdate = true
+  enabled = true
