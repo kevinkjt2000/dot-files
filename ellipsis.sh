@@ -29,6 +29,9 @@ pkg.link() {
 	fs.link_file gemrc
 	fs.link_file toprc
 	fs.link_file pylintrc
+	mkdir -p "$ELLIPSIS_HOME/.config/.github"
+	fs.link_file config/.github/CONTRIBUTING.md "$ELLIPSIS_HOME/.config/.github/CONTRIBUTING.md"
+	fs.link_file config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md "$ELLIPSIS_HOME/.config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md"
 }
 
 pkg.links() {
@@ -36,7 +39,7 @@ pkg.links() {
 	local files=".gitconfig .xmonad/xmonad.hs .config/openbox/lxde-rc.xml .emacs"
 	files+=" .config/gitignore_global .ctags .config/fontconfig/fonts.conf"
 	files+=" .hgrc .rvmrc .gemrc .toprc .pylintrc"
-	for f in "config/git/template/hooks/*"; do
+	for f in "config/git/template/hooks/*" "config/.github/*"; do
 		files+=" .$f"
 	done
 	if [ $(hostname) = "Toxicity" ]; then
@@ -58,6 +61,8 @@ pkg.unlink() {
 	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-commit"
 	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-merge"
 	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-rewrite"
+	rm "$ELLIPSIS_HOME/.config/.github/CONTRIBUTING.md"
+	rm "$ELLIPSIS_HOME/.config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md"
 	rm "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
 	hooks.unlink
 }
