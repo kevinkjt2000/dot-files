@@ -1,11 +1,2 @@
 #!/usr/bin/env bash
 "$GIT_DIR/hooks/ctags" >/dev/null 2>&1 || true &
-
-changed_files="$(git diff-tree -r --name-only ORIG_HEAD HEAD)"
-has_changed() {
-  echo "$changed_files" | grep -s --quiet "^$1"
-}
-
-if has_changed package.json; then
-  npm install
-fi
