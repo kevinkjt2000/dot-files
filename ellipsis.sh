@@ -13,7 +13,6 @@ pkg.link() {
 	fs.link_file config/openbox/lxde-rc.xml "$ELLIPSIS_HOME/.config/openbox/lxde-rc.xml"
 	fs.link_file config/gitignore_global "$ELLIPSIS_HOME/.config/gitignore_global"
 	fs.link_file emacs
-	fs.link_file ctags
 	mkdir -p "$ELLIPSIS_HOME/.config/git/template/hooks"
 	fs.link_file config/git/template/hooks/ctags "$ELLIPSIS_HOME/.config/git/template/hooks/ctags"
 	fs.link_file config/git/template/hooks/post-checkout "$ELLIPSIS_HOME/.config/git/template/hooks/post-checkout"
@@ -32,14 +31,16 @@ pkg.link() {
 	mkdir -p "$ELLIPSIS_HOME/.config/.github"
 	fs.link_file config/.github/CONTRIBUTING.md "$ELLIPSIS_HOME/.config/.github/CONTRIBUTING.md"
 	fs.link_file config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md "$ELLIPSIS_HOME/.config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md"
+	mkdir -p "$ELLIPSIS_HOME/.ctags.d"
+	fs.link_rfiles ctags.d "$ELLIPSIS_HOME/.ctags.d"
 }
 
 pkg.links() {
 	msg.bold "${1:-$PKG_NAME}"
 	local files=".gitconfig .xmonad/xmonad.hs .config/openbox/lxde-rc.xml .emacs"
-	files+=" .config/gitignore_global .ctags .config/fontconfig/fonts.conf"
+	files+=" .config/gitignore_global .config/fontconfig/fonts.conf"
 	files+=" .hgrc .rvmrc .gemrc .toprc .pylintrc"
-	for f in "config/git/template/hooks/*" "config/.github/*"; do
+	for f in "config/git/template/hooks/*" "config/.github/*" "ctags.d/*"; do
 		files+=" .$f"
 	done
 	if [ $(hostname) = "Toxicity" ]; then
@@ -64,6 +65,7 @@ pkg.unlink() {
 	rm "$ELLIPSIS_HOME/.config/.github/CONTRIBUTING.md"
 	rm "$ELLIPSIS_HOME/.config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md"
 	rm "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
+	rm $(fs.list_symlinks "$ELLIPSIS_HOME/.ctags.d")
 	hooks.unlink
 }
 
