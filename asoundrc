@@ -9,17 +9,26 @@ pcm.usb
   card Microphone
 }
 
-pcm.!default
-{
+pcm.softvol {
+  type softvol
+  slave.pcm "usb"
+  control {
+    name "Mic Capture Volume"
+  }
+  min_dB -8.0
+  max_dB 25.0
+}
+
+pcm.!default {
   type asym
-  playback.pcm
-  {
+
+  playback.pcm {
     type hw
     card PCH
   }
-  capture.pcm
-  {
+
+  capture.pcm {
     type plug
-    slave.pcm "usb"
+    slave.pcm "softvol"
   }
 }
