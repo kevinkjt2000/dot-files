@@ -8,45 +8,32 @@ pkg.link() {
 	fi
 	fs.link_file gitconfig
 	mkdir -p "$ELLIPSIS_HOME/.xmonad"
-	fs.link_file xmonad/xmonad.hs "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
-	mkdir -p "$ELLIPSIS_HOME/.config/openbox"
-	fs.link_file config/openbox/lxde-rc.xml "$ELLIPSIS_HOME/.config/openbox/lxde-rc.xml"
-	fs.link_file config/gitignore_global "$ELLIPSIS_HOME/.config/gitignore_global"
+	fs.link_rfiles xmonad "$ELLIPSIS_HOME/.xmonad"
 	fs.link_file emacs
-	mkdir -p "$ELLIPSIS_HOME/.config/git/template/hooks"
-	fs.link_file config/git/template/hooks/ctags "$ELLIPSIS_HOME/.config/git/template/hooks/ctags"
-	fs.link_file config/git/template/hooks/post-checkout "$ELLIPSIS_HOME/.config/git/template/hooks/post-checkout"
-	fs.link_file config/git/template/hooks/post-commit "$ELLIPSIS_HOME/.config/git/template/hooks/post-commit"
-	fs.link_file config/git/template/hooks/post-merge "$ELLIPSIS_HOME/.config/git/template/hooks/post-merge"
-	fs.link_file config/git/template/hooks/post-rewrite "$ELLIPSIS_HOME/.config/git/template/hooks/post-rewrite"
+	fs.link_rfiles config "$ELLIPSIS_HOME/.config"
 	fs.link_file xinitrc
-	mkdir -p "$ELLIPSIS_HOME/.config/fontconfig"
-	fs.link_file config/fontconfig/fonts.conf "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
 	fs.link_file hgrc
 	fs.link_file nvidia-settings-rc
 	fs.link_file rvmrc
 	fs.link_file gemrc
 	fs.link_file toprc
 	fs.link_file pylintrc
-	mkdir -p "$ELLIPSIS_HOME/.config/.github"
-	fs.link_file config/.github/CONTRIBUTING.md "$ELLIPSIS_HOME/.config/.github/CONTRIBUTING.md"
-	fs.link_file config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md "$ELLIPSIS_HOME/.config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md"
 	mkdir -p "$ELLIPSIS_HOME/.ctags.d"
 	fs.link_rfiles ctags.d "$ELLIPSIS_HOME/.ctags.d"
 }
 
 pkg.links() {
 	msg.bold "${1:-$PKG_NAME}"
-	local files=".gitconfig .xmonad/xmonad.hs .config/openbox/lxde-rc.xml .emacs"
-	files+=" .config/gitignore_global .config/fontconfig/fonts.conf"
+	local files=".gitconfig .emacs"
 	files+=" .hgrc .rvmrc .gemrc .toprc .pylintrc"
-	for f in "config/git/template/hooks/*" "config/.github/*" "ctags.d/*"; do
+	for f in ctags.d/* xmonad/* config/*; do
 		files+=" .$f"
 	done
 	if [ $(hostname) = "Toxicity" ]; then
 		files+=" .asoundrc .xinitrc .nvidia-settings-rc"
 	fi
-	for file in $files; do
+	local sorted_files=$(echo $files | xargs -n 1 echo | sort)
+	for file in $sorted_files; do
 		local file="$ELLIPSIS_HOME/$file"
 		local link="$(readlink "$file")"
 		echo "$(path.relative_to_packages "$link") -> $(path.relative_to_home "$file")";
