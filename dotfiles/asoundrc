@@ -1,0 +1,34 @@
+# ALSA library configuration file
+
+# Include settings that are under the control of asoundconf(1).
+# (To disable these settings, comment out this line.)
+#</home/kevin/.asoundrc.asoundconf>
+pcm.usb
+{
+  type hw
+  card Microphone
+}
+
+pcm.softvol {
+  type softvol
+  slave.pcm "usb"
+  control {
+    name "Mic Capture Volume"
+  }
+  min_dB -8.0
+  max_dB 25.0
+}
+
+pcm.!default {
+  type asym
+
+  playback.pcm {
+    type hw
+    card PCH
+  }
+
+  capture.pcm {
+    type plug
+    slave.pcm "softvol"
+  }
+}

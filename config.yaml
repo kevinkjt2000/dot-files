@@ -28,6 +28,9 @@ dotfiles:
   d_xmonad:
     dst: ~/.xmonad
     src: xmonad
+  f_asoundrc:
+    dst: ~/.asoundrc
+    src: asoundrc
   f_emacs:
     dst: ~/.emacs
     src: emacs
@@ -43,13 +46,26 @@ dotfiles:
   f_hgrc:
     dst: ~/.hgrc
     src: hgrc
+  f_nvidia-settings-rc:
+    dst: ~/.nvidia-settings-rc
+    src: nvidia-settings-rc
   f_pylintrc:
     dst: ~/.pylintrc
     src: pylintrc
   f_rvmrc:
     dst: ~/.rvmrc
     src: rvmrc
+  f_xinitrc:
+    dst: ~/.xinitrc
+    src: xinitrc
 profiles:
+  Toxicity:
+    dotfiles:
+    - f_asoundrc
+    - f_xinitrc
+    - f_nvidia-settings-rc
+    include:
+    - base_profile
   base_profile:
     dotfiles:
     - d_ctags.d
@@ -65,6 +81,3 @@ profiles:
     - f_hgrc
     - f_pylintrc
     - f_rvmrc
-  Toxicity:
-    dotfiles:
-    - ALL
