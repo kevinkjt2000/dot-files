@@ -49,9 +49,6 @@ dotfiles:
   f_rvmrc:
     dst: ~/.rvmrc
     src: rvmrc
-  f_toprc:
-    dst: ~/.toprc
-    src: toprc
 profiles:
   Toxicity:
     dotfiles:
@@ -68,4 +65,3 @@ profiles:
     - f_hgrc
     - f_pylintrc
     - f_rvmrc
-    - f_toprc
