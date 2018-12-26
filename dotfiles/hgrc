@@ -1,0 +1,12 @@
+[ui]
+username = Kevin Tindall <kevinkjt2000@gmail.com>
+
+[extensions]
+progress =
+color =
+hgext.extdiff =
+record =
+
+[extdiff]
+cmd.meld =
+opts.meld = 2> /dev/null

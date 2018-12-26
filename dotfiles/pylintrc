@@ -1,0 +1,8 @@
+[MASTER]
+extension-pkg-whitelist=lxml
+
+[TYPECHECK]
+ignored-classes=responses,requests.packages
+
+[MESSAGES CONTROL]
+disable=missing-docstring,missing-final-newline
