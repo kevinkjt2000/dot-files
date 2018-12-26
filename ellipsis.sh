@@ -10,6 +10,7 @@ pkg.link() {
 	mkdir -p "$ELLIPSIS_HOME/.xmonad"
 	fs.link_rfiles xmonad "$ELLIPSIS_HOME/.xmonad"
 	fs.link_file emacs
+	mkdir -p "$ELLIPSIS_HOME/.config"
 	fs.link_rfiles config "$ELLIPSIS_HOME/.config"
 	fs.link_file xinitrc
 	fs.link_file hgrc
