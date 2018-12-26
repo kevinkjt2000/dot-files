@@ -50,7 +50,7 @@ dotfiles:
     dst: ~/.rvmrc
     src: rvmrc
 profiles:
-  Toxicity:
+  base_profile:
     dotfiles:
     - d_ctags.d
     - d_git
@@ -65,3 +65,6 @@ profiles:
     - f_hgrc
     - f_pylintrc
     - f_rvmrc
+  Toxicity:
+    dotfiles:
+    - ALL
