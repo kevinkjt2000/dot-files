@@ -1,0 +1,83 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  ignoreempty: false
+  keepdot: false
+  link_by_default: false
+  longkey: false
+  showdiff: false
+  workdir: ~/.config/dotdrop
+dotfiles:
+  d_ctags.d:
+    dst: ~/.ctags.d
+    src: ctags.d
+  d_fontconfig:
+    dst: ~/.config/fontconfig
+    src: config/fontconfig
+  d_git:
+    dst: ~/.config/git
+    src: config/git
+  d_github:
+    dst: ~/.config/.github
+    src: config/.github
+  d_openbox:
+    dst: ~/.config/openbox
+    src: config/openbox
+  d_xmonad:
+    dst: ~/.xmonad
+    src: xmonad
+  f_asoundrc:
+    dst: ~/.asoundrc
+    src: asoundrc
+  f_emacs:
+    dst: ~/.emacs
+    src: emacs
+  f_gemrc:
+    dst: ~/.gemrc
+    src: gemrc
+  f_gitconfig:
+    dst: ~/.gitconfig
+    src: gitconfig
+  f_gitignore_global:
+    dst: ~/.config/gitignore_global
+    src: config/gitignore_global
+  f_hgrc:
+    dst: ~/.hgrc
+    src: hgrc
+  f_nvidia-settings-rc:
+    dst: ~/.nvidia-settings-rc
+    src: nvidia-settings-rc
+  f_pylintrc:
+    dst: ~/.pylintrc
+    src: pylintrc
+  f_rvmrc:
+    dst: ~/.rvmrc
+    src: rvmrc
+  f_xinitrc:
+    dst: ~/.xinitrc
+    src: xinitrc
+profiles:
+  Toxicity:
+    dotfiles:
+    - f_asoundrc
+    - f_xinitrc
+    - f_nvidia-settings-rc
+    include:
+    - base_profile
+  base_profile:
+    dotfiles:
+    - d_ctags.d
+    - d_git
+    - d_openbox
+    - d_fontconfig
+    - d_github
+    - f_gitignore_global
+    - d_xmonad
+    - f_emacs
+    - f_gemrc
+    - f_gitconfig
+    - f_hgrc
+    - f_pylintrc
+    - f_rvmrc

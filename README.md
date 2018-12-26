@@ -1,11 +1,2 @@
-# kevinkjt2000/files
-Just a bunch of dotfiles.
-
-## Install
-Clone and symlink or install with [ellipsis][ellipsis]:
-
-```
-$ ellipsis install kevinkjt2000/files
-```
-
-[ellipsis]: http://ellipsis.sh
+## kevinkjt2000's dot-files
+The dotfiles are managed using dotdrop: https://github.com/deadc0de6/dotdrop
