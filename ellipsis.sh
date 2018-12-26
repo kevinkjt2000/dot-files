@@ -4,34 +4,27 @@
 
 pkg.link() {
 	if [ $(hostname) = "Toxicity" ]; then
-		fs.link_file asoundrc
+		fs.link_file toxicity/asoundrc
+		fs.link_file toxicity/nvidia-settings-rc
+		fs.link_file toxicity/xinitrc
 	fi
-	fs.link_file gitconfig
-	mkdir -p "$ELLIPSIS_HOME/.xmonad"
-	fs.link_rfiles xmonad "$ELLIPSIS_HOME/.xmonad"
-	fs.link_file emacs
 	mkdir -p "$ELLIPSIS_HOME/.config"
 	fs.link_rfiles config "$ELLIPSIS_HOME/.config"
-	fs.link_file xinitrc
-	fs.link_file hgrc
-	fs.link_file nvidia-settings-rc
-	fs.link_file rvmrc
-	fs.link_file gemrc
-	fs.link_file toprc
-	fs.link_file pylintrc
-	mkdir -p "$ELLIPSIS_HOME/.ctags.d"
-	fs.link_rfiles ctags.d "$ELLIPSIS_HOME/.ctags.d"
+	fs.link_files home
 }
 
 pkg.links() {
 	msg.bold "${1:-$PKG_NAME}"
-	local files=".gitconfig .emacs"
-	files+=" .hgrc .rvmrc .gemrc .toprc .pylintrc"
-	for f in ctags.d/* xmonad/* config/*; do
+	for f in config/*; do
 		files+=" .$f"
 	done
+	for f in home/*; do
+		files+=" .${f/#home\//}"
+	done
 	if [ $(hostname) = "Toxicity" ]; then
-		files+=" .asoundrc .xinitrc .nvidia-settings-rc"
+		for f in toxicity/*; do
+			files+=" .${f/#toxicity\//}"
+		done
 	fi
 	local sorted_files=$(echo $files | xargs -n 1 echo | sort)
 	for file in $sorted_files; do
@@ -42,18 +35,16 @@ pkg.links() {
 }
 
 pkg.unlink() {
-	rm "$ELLIPSIS_HOME/.config/openbox/lxde-rc.xml"
-	rm "$ELLIPSIS_HOME/.config/gitignore_global"
-	rm "$ELLIPSIS_HOME/.xmonad/xmonad.hs"
-	rm "$ELLIPSIS_HOME/.config/git/template/hooks/ctags"
-	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-checkout"
-	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-commit"
-	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-merge"
-	rm "$ELLIPSIS_HOME/.config/git/template/hooks/post-rewrite"
-	rm "$ELLIPSIS_HOME/.config/.github/CONTRIBUTING.md"
-	rm "$ELLIPSIS_HOME/.config/.github/ISSUE_AND_PULL_REQUEST_TEMPLATE.md"
-	rm "$ELLIPSIS_HOME/.config/fontconfig/fonts.conf"
-	rm $(fs.list_symlinks "$ELLIPSIS_HOME/.ctags.d")
-	hooks.unlink
+	for f in config/*; do
+		rm "$ELLIPSIS_HOME/.$f"
+	done
+	for f in home/*; do
+		rm "$ELLIPSIS_HOME/.${f/#home\//}"
+	done
+	if [ $(hostname) = "Toxicity" ]; then
+		for f in toxicity/*; do
+			rm "$ELLIPSIS_HOME/.${f/#toxicity\//}"
+		done
+	fi
 }
 
