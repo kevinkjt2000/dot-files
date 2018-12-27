@@ -1,3 +1,7 @@
+actions:
+  pre:
+    vim_plugins_submodules: git submodule update --init --recursive dotfiles/config/nvim/bundle
+  vim_plugins: nvim +PluginClean! +PluginInstall +PluginUpdate +GoInstallBinaries +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py" --clang-completer --racer-completer --system-libclang --system-boost --go-completer
 config:
   backup: true
   banner: true
@@ -25,6 +29,12 @@ dotfiles:
   d_openbox:
     dst: ~/.config/openbox
     src: config/openbox
+  d_vundle.vim:
+    dst: ~/.config/nvim/bundle/Vundle.vim
+    src: config/nvim/bundle/Vundle.vim
+    actions:
+      - vim_plugins_submodules
+    link: true
   d_xmonad:
     dst: ~/.xmonad
     src: xmonad
@@ -55,6 +65,11 @@ dotfiles:
   f_rvmrc:
     dst: ~/.rvmrc
     src: rvmrc
+  f_vimrc:
+    dst: ~/.config/nvim/init.vim
+    src: config/nvim/init.vim
+    actions:
+      - vim_plugins
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
@@ -73,6 +88,7 @@ profiles:
     - d_openbox
     - d_fontconfig
     - d_github
+    - d_vundle.vim
     - f_gitignore_global
     - d_xmonad
     - f_emacs
@@ -81,3 +97,4 @@ profiles:
     - f_hgrc
     - f_pylintrc
     - f_rvmrc
+    - f_vimrc
