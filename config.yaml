@@ -1,7 +1,7 @@
 actions:
   pre:
     vim_plugins_submodules: git submodule update --init --recursive dotfiles/config/nvim/bundle
-  vim_plugins: nvim +PluginClean! +PluginInstall +PluginUpdate +GoInstallBinaries +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py" --clang-completer --racer-completer --system-libclang --system-boost --go-completer
+  vim_plugins: nvim +PluginClean! +PluginInstall +PluginUpdate +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py" --clang-completer --racer-completer --system-libclang --system-boost
 config:
   backup: true
   banner: true

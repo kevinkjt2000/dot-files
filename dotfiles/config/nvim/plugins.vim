@@ -14,7 +14,6 @@ call vundle#begin(s:plugin_path)
 	Plugin 'dpc/vim-smarttabs'
 	Plugin 'editorconfig/editorconfig-vim'
 	Plugin 'elixir-editors/vim-elixir'
-	Plugin 'fatih/vim-go'
 	Plugin 'vim-scripts/groovyindent-unix'
 	Plugin 'huawenyu/neogdb.vim'
 	Plugin 'idris-hackers/idris-vim'
@@ -32,7 +31,6 @@ call vundle#begin(s:plugin_path)
 	Plugin 'nathanalderson/yang.vim'
 	Plugin 'neovimhaskell/haskell-vim'
 	Plugin 'nfvs/vim-perforce'
-	Plugin 'nsf/gocode', {'rtp': 'nvim/'}
 	Plugin 'nvie/vim-flake8'
 	Plugin 'prettier/vim-prettier'
 	Plugin 'python-mode/python-mode'
