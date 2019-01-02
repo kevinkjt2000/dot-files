@@ -65,6 +65,10 @@ dotfiles:
   f_rvmrc:
     dst: ~/.rvmrc
     src: rvmrc
+  f_vscode_settings:
+    dst: ~/.config/Code - OSS/User/settings.json
+    link: true
+    src: config/Code - OSS/User/settings.json
   f_vimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
@@ -84,10 +88,10 @@ profiles:
   base_profile:
     dotfiles:
     - d_ctags.d
-    - d_git
-    - d_openbox
     - d_fontconfig
+    - d_git
     - d_github
+    - d_openbox
     - d_vundle.vim
     - d_xmonad
     - f_emacs
@@ -97,4 +101,5 @@ profiles:
     - f_hgrc
     - f_pylintrc
     - f_rvmrc
+    - f_vscode_settings
     - f_vimrc
