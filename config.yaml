@@ -89,11 +89,11 @@ profiles:
     - d_fontconfig
     - d_github
     - d_vundle.vim
-    - f_gitignore_global
     - d_xmonad
     - f_emacs
     - f_gemrc
     - f_gitconfig
+    - f_gitignore_global
     - f_hgrc
     - f_pylintrc
     - f_rvmrc
