@@ -3,7 +3,6 @@
 
 main() {
 	setup_all_the_bash_stuff
-	setup_ellipsis
 
 	add_to_path $HOME/.local/bin
 
@@ -22,11 +21,6 @@ create_aliases() {
 	alias grep='grep --color=auto --exclude=*~'
 	alias ls='ls --color=auto'
 	command_exists thefuck && eval $(thefuck --alias shimatta)
-}
-
-setup_ellipsis() {
-	export ELLIPSIS_PROTO=ssh
-	add_to_path $HOME/.ellipsis/bin
 }
 
 setup_bash_it() {
