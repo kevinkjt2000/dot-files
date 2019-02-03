@@ -2,7 +2,10 @@ actions:
   bash_it: $HOME/.bash_it/install.sh --silent --no-modify-config
   pre:
     bash_it_submodules: git submodule update --init --recursive dotfiles/config/bash_it
+    tmux_submodules: git submodule update --init --recursive dotfiles/tmux/plugins/tpm
     vim_plugins_submodules: git submodule update --init --recursive dotfiles/config/nvim/bundle
+  tmux: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins &&
+    ./update_plugins all
   vim_plugins: nvim +PluginClean! +PluginInstall +PluginUpdate +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py"
     --clang-completer --racer-completer --system-libclang --system-boost
 config:
@@ -39,12 +42,18 @@ dotfiles:
   d_openbox:
     dst: ~/.config/openbox
     src: config/openbox
-  d_vundle.vim:
-    dst: ~/.config/nvim/bundle/Vundle.vim
-    src: config/nvim/bundle/Vundle.vim
+  d_tmux:
     actions:
-      - vim_plugins_submodules
+    - tmux
+    dst: ~/.tmux/plugins/tpm
+    src: tmux/plugins/tpm
     link: true
+  d_vundle.vim:
+    actions:
+    - vim_plugins_submodules
+    dst: ~/.config/nvim/bundle/Vundle.vim
+    link: true
+    src: config/nvim/bundle/Vundle.vim
   d_xmonad:
     dst: ~/.xmonad
     src: xmonad
@@ -81,15 +90,18 @@ dotfiles:
   f_rvmrc:
     dst: ~/.rvmrc
     src: rvmrc
+  f_tmux.conf:
+    dst: ~/.tmux.conf
+    src: tmux.conf
   f_vimrc:
+    actions:
+    - vim_plugins
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
-    actions:
-      - vim_plugins
   f_vscode_settings:
     dst: ~/.config/Code - OSS/User/settings.json
-    src: config/Code - OSS/User/settings.json
     link: true
+    src: config/Code - OSS/User/settings.json
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
@@ -109,6 +121,7 @@ profiles:
     - d_git
     - d_github
     - d_openbox
+    - d_tmux
     - d_vundle.vim
     - d_xmonad
     - f_emacs
@@ -122,3 +135,4 @@ profiles:
     - f_vimrc
     - f_bashrc
     - f_profile
+    - f_tmux.conf
