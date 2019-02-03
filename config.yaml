@@ -1,7 +1,10 @@
 actions:
+  bash_it: $HOME/.bash_it/install.sh --silent --no-modify-config
   pre:
+    bash_it_submodules: git submodule update --init --recursive dotfiles/config/bash_it
     vim_plugins_submodules: git submodule update --init --recursive dotfiles/config/nvim/bundle
-  vim_plugins: nvim +PluginClean! +PluginInstall +PluginUpdate +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py" --clang-completer --racer-completer --system-libclang --system-boost
+  vim_plugins: nvim +PluginClean! +PluginInstall +PluginUpdate +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py"
+    --clang-completer --racer-completer --system-libclang --system-boost
 config:
   backup: true
   banner: true
@@ -14,6 +17,13 @@ config:
   showdiff: false
   workdir: ~/.config/dotdrop
 dotfiles:
+  d_bash_it:
+    actions:
+    - bash_it_submodules
+    - bash_it
+    dst: ~/.bash_it
+    link: true
+    src: config/bash_it
   d_ctags.d:
     dst: ~/.ctags.d
     src: ctags.d
@@ -41,6 +51,9 @@ dotfiles:
   f_asoundrc:
     dst: ~/.asoundrc
     src: asoundrc
+  f_bashrc:
+    dst: ~/.bashrc
+    src: bashrc
   f_emacs:
     dst: ~/.emacs
     src: emacs
@@ -59,21 +72,24 @@ dotfiles:
   f_nvidia-settings-rc:
     dst: ~/.nvidia-settings-rc
     src: nvidia-settings-rc
+  f_profile:
+    dst: ~/.profile
+    src: profile
   f_pylintrc:
     dst: ~/.pylintrc
     src: pylintrc
   f_rvmrc:
     dst: ~/.rvmrc
     src: rvmrc
-  f_vscode_settings:
-    dst: ~/.config/Code - OSS/User/settings.json
-    link: true
-    src: config/Code - OSS/User/settings.json
   f_vimrc:
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
     actions:
       - vim_plugins
+  f_vscode_settings:
+    dst: ~/.config/Code - OSS/User/settings.json
+    src: config/Code - OSS/User/settings.json
+    link: true
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
@@ -88,6 +104,7 @@ profiles:
   base_profile:
     dotfiles:
     - d_ctags.d
+    - d_bash_it
     - d_fontconfig
     - d_git
     - d_github
@@ -103,3 +120,5 @@ profiles:
     - f_rvmrc
     - f_vscode_settings
     - f_vimrc
+    - f_bashrc
+    - f_profile
