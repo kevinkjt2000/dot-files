@@ -4,3 +4,6 @@
 [submodule "dotfiles/config/nvim/bundle/Vundle.vim"]
 	path = dotfiles/config/nvim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule "dotfiles/config/bash_it"]
+	path = dotfiles/config/bash_it
+	url = https://github.com/Bash-it/bash-it.git
