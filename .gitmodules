@@ -7,3 +7,6 @@
 [submodule "dotfiles/config/bash_it"]
 	path = dotfiles/config/bash_it
 	url = https://github.com/Bash-it/bash-it.git
+[submodule "tmux/plugins/tpm"]
+	path = dotfiles/tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git
