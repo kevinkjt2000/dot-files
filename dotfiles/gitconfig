@@ -34,3 +34,6 @@
 [rerere]
   autoupdate = true
   enabled = true
+
+[hub]
+  protocol = ssh
