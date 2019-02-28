@@ -3,10 +3,9 @@ actions:
   pre:
     bash_it_submodules: git submodule update --init --recursive dotfiles/config/bash_it
     tmux_submodules: git submodule update --init --recursive dotfiles/tmux/plugins/tpm
-    vim_plugins_submodules: git submodule update --init --recursive dotfiles/config/nvim/bundle
   tmux: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins &&
     ./update_plugins all
-  vim_plugins: nvim +PluginClean! +PluginInstall +PluginUpdate +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py"
+  vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall && "$HOME/.config/nvim/bundle/YouCompleteMe/install.py"
     --clang-completer --racer-completer --system-libclang --system-boost
 config:
   backup: true
@@ -48,12 +47,6 @@ dotfiles:
     dst: ~/.tmux/plugins/tpm
     src: tmux/plugins/tpm
     link: true
-  d_vundle.vim:
-    actions:
-    - vim_plugins_submodules
-    dst: ~/.config/nvim/bundle/Vundle.vim
-    link: true
-    src: config/nvim/bundle/Vundle.vim
   d_xmonad:
     dst: ~/.xmonad
     src: xmonad
@@ -81,6 +74,9 @@ dotfiles:
   f_nvidia-settings-rc:
     dst: ~/.nvidia-settings-rc
     src: nvidia-settings-rc
+  f_plug.vim:
+    dst: ~/.local/share/nvim/site/autoload/plug.vim
+    src: local/share/nvim/site/autoload/plug.vim
   f_profile:
     dst: ~/.profile
     src: profile
@@ -122,13 +118,13 @@ profiles:
     - d_github
     - d_openbox
     - d_tmux
-    - d_vundle.vim
     - d_xmonad
     - f_emacs
     - f_gemrc
     - f_gitconfig
     - f_gitignore_global
     - f_hgrc
+    - f_plug.vim
     - f_pylintrc
     - f_rvmrc
     - f_vscode_settings

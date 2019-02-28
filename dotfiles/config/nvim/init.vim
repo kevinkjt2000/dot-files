@@ -1,3 +1,6 @@
+" Forget the past, the future is not compatible with it
+set nocompatible
+
 " Load plugins first :)
 {%@@ include 'config/nvim/plugins.vim' @@%}
 
