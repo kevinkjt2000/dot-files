@@ -43,7 +43,7 @@ call plug#begin(s:plugin_path)
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-unimpaired'
-	Plug 'Valloric/YouCompleteMe'
+	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer --system-libclang --system-boost'}
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'vim-ruby/vim-ruby'
