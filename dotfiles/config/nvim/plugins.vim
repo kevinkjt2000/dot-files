@@ -19,6 +19,7 @@ call vundle#begin(s:plugin_path)
 	Plugin 'idris-hackers/idris-vim'
 	Plugin 'jacoborus/tender.vim'
 	Plugin 'jakwings/vim-pony'
+	Plugin 'janko-m/vim-test'
 	Plugin 'jremmen/vim-ripgrep'
 	Plugin 'junegunn/vader.vim'
 	Plugin 'junegunn/vim-easy-align'
