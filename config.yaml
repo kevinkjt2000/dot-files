@@ -44,8 +44,8 @@ dotfiles:
     actions:
     - tmux
     dst: ~/.tmux/plugins/tpm
-    src: tmux/plugins/tpm
     link: true
+    src: tmux/plugins/tpm
   d_xmonad:
     dst: ~/.xmonad
     src: xmonad
@@ -88,6 +88,9 @@ dotfiles:
   f_tmux.conf:
     dst: ~/.tmux.conf
     src: tmux.conf
+  f_tmuxline-snapshot.conf:
+    dst: ~/.tmux/tmuxline-snapshot.conf
+    src: tmux/tmuxline-snapshot.conf
   f_vimrc:
     actions:
     - vim_plugins
@@ -131,3 +134,4 @@ profiles:
     - f_bashrc
     - f_profile
     - f_tmux.conf
+    - f_tmuxline-snapshot.conf
