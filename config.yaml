@@ -103,6 +103,9 @@ dotfiles:
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
+  f_xscreensaver:
+    dst: ~/.xscreensaver
+    src: xscreensaver
 profiles:
   Toxicity:
     dotfiles:
@@ -135,3 +138,4 @@ profiles:
     - f_profile
     - f_tmux.conf
     - f_tmuxline-snapshot.conf
+    - f_xscreensaver
