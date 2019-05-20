@@ -44,7 +44,7 @@ textProgram:	fortune
 textURL:	https://en.wikipedia.org/w/index.php?title=Special:NewPages&feed=rss
 
 programs:								      \
-				asciiquariumxss -root				    \n\
+- GL: 				asciiquariumxss -root			    \n\
 -				maze -root				    \n\
 - GL: 				superquadrics -root			    \n\
 -				attraction -root			    \n\
