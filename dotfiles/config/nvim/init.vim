@@ -13,8 +13,9 @@ let g:prettier#autoformat = 0
 " TODO: investigate using async version
 autocmd BufWritePre *.js,*.ts,*.css,*.scss Prettier
 
-" Disable .ropeproject creation with python-mode plugin
-let g:pymode_rope = 0
+" Some python ropeproject settings
+let g:pymode_rope = 1
+let g:pymode_rope_goto_definition_cmd = 'e'
 
 " Disable pymode linting, since ALE handles that
 let g:pymode_lint = 0
