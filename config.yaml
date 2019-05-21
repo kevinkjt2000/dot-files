@@ -7,7 +7,7 @@ actions:
     ./update_plugins all
   vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
 config:
-  backup: true
+  backup: false
   banner: true
   create: true
   dotpath: dotfiles
