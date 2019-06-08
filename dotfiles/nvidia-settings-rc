@@ -2,7 +2,7 @@
 # /home/kevin/.nvidia-settings-rc
 #
 # Configuration file for nvidia-settings - the NVIDIA X Server Settings utility
-# Generated on Sun Jul 29 11:36:29 2018
+# Generated on Fri Jun  7 06:52:21 2019
 #
 
 # ConfigProperties:
@@ -32,19 +32,11 @@ Timer = PowerMizer_Monitor_(GPU_1),Yes,1000
 0/LogAnisoAppControlled=1
 0/OpenGLImageSettings=0
 0/FSAAAppEnhanced=0
-[DPY:DVI-I-0]/RedBrightness=0.000000
-[DPY:DVI-I-0]/GreenBrightness=0.000000
-[DPY:DVI-I-0]/BlueBrightness=0.000000
-[DPY:DVI-I-0]/RedContrast=0.000000
-[DPY:DVI-I-0]/GreenContrast=0.000000
-[DPY:DVI-I-0]/BlueContrast=0.000000
-[DPY:DVI-I-0]/RedGamma=1.000000
-[DPY:DVI-I-0]/GreenGamma=1.000000
-[DPY:DVI-I-0]/BlueGamma=1.000000
+0/ShowGraphicsVisualIndicator=0
+0/XVideoSyncToDisplayID=DP-4
 [DPY:DVI-I-0]/Dithering=0
 [DPY:DVI-I-0]/DitheringMode=0
 [DPY:DVI-I-0]/DitheringDepth=0
-[DPY:DVI-I-0]/DigitalVibrance=0
 [DPY:DVI-I-0]/SynchronousPaletteUpdates=0
 [DPY:DVI-I-1]/Dithering=0
 [DPY:DVI-I-1]/DitheringMode=0

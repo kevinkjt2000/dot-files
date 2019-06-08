@@ -106,6 +106,9 @@ dotfiles:
   f_xinitrc:
     dst: ~/.xinitrc
     src: xinitrc
+  f_xorg.conf:
+    dst: ~/xorg.conf
+    src: xorg.conf
   f_xprofile:
     dst: ~/.xprofile
     src: xprofile
@@ -121,6 +124,7 @@ profiles:
     - f_asoundrc
     - f_xinitrc
     - f_nvidia-settings-rc
+    - f_xorg.conf
     include:
     - base_profile
   base_profile:
