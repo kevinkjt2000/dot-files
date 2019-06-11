@@ -13,6 +13,9 @@
   editor = nvim
   excludesfile = ~/.config/gitignore_global
 
+[credential]
+  helper = /usr/lib/git-core/git-credential-libsecret
+
 [alias]
   aa = add --all
   amend = commit --amend
