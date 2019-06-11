@@ -122,7 +122,6 @@ profiles:
   Toxicity:
     dotfiles:
     - f_asoundrc
-    - f_xinitrc
     - f_nvidia-settings-rc
     - f_xorg.conf
     include:
@@ -152,9 +151,11 @@ profiles:
     - f_tmux.conf
     - f_tmuxline-snapshot.conf
     - f_xscreensaver
-  reds-machine:
-    dotfiles:
     - f_xprofile
     - f_xinitrc
     - f_xresources
     - f_lightson+
+  reds-machine:
+    dotfiles: []
+    include:
+      - base_profile
