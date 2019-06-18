@@ -55,6 +55,9 @@ dotfiles:
   f_bashrc:
     dst: ~/.bashrc
     src: bashrc
+  f_direnv:
+    dst: ~/.local/bin/direnv
+    src: local/bin/direnv
   f_emacs:
     dst: ~/.emacs
     src: emacs
@@ -136,6 +139,7 @@ profiles:
     - d_openbox
     - d_tmux
     - d_xmonad
+    - f_direnv
     - f_emacs
     - f_gemrc
     - f_gitconfig
@@ -156,6 +160,5 @@ profiles:
     - f_xresources
     - f_lightson+
   reds-machine:
-    dotfiles: []
     include:
-      - base_profile
+    - base_profile

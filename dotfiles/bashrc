@@ -15,6 +15,7 @@ main() {
 	export GOPATH="$HOME/go"
 	add_to_path $HOME/go/bin
 
+	eval "$(direnv hook bash)"
 	eval "$(pyenv init -)"
 }
 
