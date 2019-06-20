@@ -7,3 +7,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = dotfiles/tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "asdf"]
+	path = asdf
+	url = https://github.com/asdf-vm/asdf.git

@@ -3,7 +3,7 @@ actions:
   pre:
     bash_it_submodules: git submodule update --init --recursive dotfiles/config/bash_it
     tmux_submodules: git submodule update --init --recursive dotfiles/tmux/plugins/tpm
-  tmux: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins &&
+  tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins &&
     ./update_plugins all
   vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
 config:
@@ -13,17 +13,17 @@ config:
   dotpath: dotfiles
   ignoreempty: false
   keepdot: false
-  link_by_default: false
   longkey: false
   showdiff: false
   workdir: ~/.config/dotdrop
+  link_on_import: nolink
 dotfiles:
   d_bash_it:
     actions:
     - bash_it_submodules
     - bash_it
     dst: ~/.bash_it
-    link: true
+    link: link
     src: config/bash_it
   d_ctags.d:
     dst: ~/.ctags.d
@@ -42,9 +42,9 @@ dotfiles:
     src: config/openbox
   d_tmux:
     actions:
-    - tmux
+    - tmux_plugins
     dst: ~/.tmux/plugins/tpm
-    link: true
+    link: link
     src: tmux/plugins/tpm
   d_xmonad:
     dst: ~/.xmonad
@@ -88,9 +88,6 @@ dotfiles:
   f_pylintrc:
     dst: ~/.pylintrc
     src: pylintrc
-  f_rvmrc:
-    dst: ~/.rvmrc
-    src: rvmrc
   f_tmux.conf:
     dst: ~/.tmux.conf
     src: tmux.conf
@@ -104,7 +101,7 @@ dotfiles:
     src: config/nvim/init.vim
   f_vscode_settings:
     dst: ~/.config/Code - OSS/User/settings.json
-    link: true
+    link: link
     src: config/Code - OSS/User/settings.json
   f_xinitrc:
     dst: ~/.xinitrc
@@ -121,44 +118,47 @@ dotfiles:
   f_xscreensaver:
     dst: ~/.xscreensaver
     src: xscreensaver
+  f_tool-versions:
+    src: tool-versions
+    dst: ~/.tool-versions
 profiles:
   Toxicity:
     dotfiles:
     - f_asoundrc
     - f_nvidia-settings-rc
     - f_xorg.conf
+    - f_tool-versions
     include:
     - base_profile
   base_profile:
     dotfiles:
-    - d_ctags.d
     - d_bash_it
+    - d_ctags.d
     - d_fontconfig
     - d_git
     - d_github
     - d_openbox
     - d_tmux
     - d_xmonad
+    - f_bashrc
     - f_direnv
     - f_emacs
     - f_gemrc
     - f_gitconfig
     - f_gitignore_global
     - f_hgrc
+    - f_lightson+
     - f_plug.vim
-    - f_pylintrc
-    - f_rvmrc
-    - f_vscode_settings
-    - f_vimrc
-    - f_bashrc
     - f_profile
+    - f_pylintrc
     - f_tmux.conf
     - f_tmuxline-snapshot.conf
-    - f_xscreensaver
-    - f_xprofile
+    - f_vimrc
+    - f_vscode_settings
     - f_xinitrc
+    - f_xprofile
     - f_xresources
-    - f_lightson+
+    - f_xscreensaver
   reds-machine:
     include:
     - base_profile

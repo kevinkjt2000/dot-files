@@ -4,34 +4,27 @@
 main() {
 	setup_all_the_bash_stuff
 
-	add_to_path $HOME/.local/bin
-
-	export NVM_DIR="$HOME/.nvm"
-	[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-	[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-	add_to_path $HOME/.config/yarn/global/node_modules/.bin
-	add_to_path $HOME/.yarn/bin
-
-	export GOPATH="$HOME/go"
-	add_to_path $HOME/go/bin
+	add_to_path "$HOME/.local/bin"
 
 	eval "$(direnv hook bash)"
-	eval "$(pyenv init -)"
+
+	source "$HOME/.asdf/asdf.sh"
+	source "$HOME/.asdf/completions/asdf.bash"
 }
 
 create_aliases() {
-	alias duchs='du -chs .[!.]* * | sort -rn'
-	alias grep='grep --color=auto --exclude=*~'
-	alias ls='ls --color=auto'
+	alias duchs="du -chs .[!.]* * | sort -rn"
+	alias grep="grep --color=auto --exclude=*~"
+	alias ls="ls --color=auto"
 	command_exists thefuck && eval $(thefuck --alias shimatta)
 }
 
 setup_bash_it() {
 	export BASH_IT="$HOME/.bash_it"
-	export BASH_IT_THEME='modern'
+	export BASH_IT_THEME="modern"
 	export BASH_IT_AUTOMATIC_RELOAD_AFTER_CONFIG_CHANGE=1
 	export SCM_CHECK=true  # Show SCM status in prompt
-	source $BASH_IT/bash_it.sh
+	source "$BASH_IT/bash_it.sh"
 }
 
 setup_environment_variables() {
@@ -41,12 +34,12 @@ setup_environment_variables() {
 	export HISTSIZE=100000  # More command history! YAY!
 	export HISTFILESIZE=10000000  # and the space to store those commands
 	export HISTCONTROL=ignoreboth  # Ignore duplicate commands and commands that start with ' '
-	export HISTCONTROL+=':erasedups'  # Erase duplicates form history
-	export HISTIGNORE='ls:bg:fg:history'
-	safe_append_prompt_command 'history -a'  # Store history immediately
+	export HISTCONTROL+=":erasedups"  # Erase duplicates form history
+	export HISTIGNORE="ls:bg:fg:history"
+	safe_append_prompt_command "history -a"  # Store history immediately
 	export GPG_TTY=$(tty)  # Enables interactive password entry for gpg
 	export CHROME_BIN=chromium  # Enables angular to find chrome exe
-	export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+	export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 	export XDG_CONFIG_HOME="$HOME/.config"
 	export DOT_GITHUB_HOME="$XDG_CONFIG_HOME"
 
