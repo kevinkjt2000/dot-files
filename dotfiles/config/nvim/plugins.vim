@@ -10,7 +10,6 @@ call plug#begin(s:plugin_path)
 	Plug 'dpc/vim-smarttabs'
 	Plug 'editorconfig/editorconfig-vim'
 	Plug 'elixir-editors/vim-elixir'
-	Plug 'vim-scripts/groovyindent-unix'
 	Plug 'huawenyu/neogdb.vim'
 	Plug 'idris-hackers/idris-vim'
 	Plug 'jacoborus/tender.vim'
@@ -47,5 +46,6 @@ call plug#begin(s:plugin_path)
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'vim-ruby/vim-ruby'
+	Plug 'vim-scripts/groovyindent-unix'
 	Plug 'w0rp/ale'
 call plug#end()
