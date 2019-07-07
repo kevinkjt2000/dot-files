@@ -48,6 +48,9 @@ setup_environment_variables() {
 	export XMODIFIERS=@im=ibus
 	export QT_IM_MODULE=xim
 	export QT4_IM_MODULE=xim
+
+	# Enable YouCompleteMe python support
+	export PYTHON_CONFIGURE_OPTS="--enable-shared"
 }
 
 setup_all_the_bash_stuff() {
