@@ -40,7 +40,6 @@ setup_environment_variables() {
 	export GPG_TTY=$(tty)  # Enables interactive password entry for gpg
 	export CHROME_BIN=chromium  # Enables angular to find chrome exe
 	export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
-	export XDG_CONFIG_HOME="$HOME/.config"
 	export DOT_GITHUB_HOME="$XDG_CONFIG_HOME"
 
 	# IME keyboard support
