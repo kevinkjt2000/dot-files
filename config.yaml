@@ -3,8 +3,8 @@ actions:
   pre:
     bash_it_submodules: git submodule update --init --recursive dotfiles/config/bash_it
     tmux_submodules: git submodule update --init --recursive dotfiles/tmux/plugins/tpm
-  tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins &&
-    ./update_plugins all
+  tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
+    && ./update_plugins all
   vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
 config:
   backup: false
@@ -121,6 +121,9 @@ dotfiles:
   f_tool-versions:
     src: tool-versions
     dst: ~/.tool-versions
+  f_inputrc:
+    src: inputrc
+    dst: ~/.inputrc
 profiles:
   Toxicity:
     dotfiles:
@@ -159,6 +162,7 @@ profiles:
     - f_xprofile
     - f_xresources
     - f_xscreensaver
+    - f_inputrc
   reds-machine:
     include:
     - base_profile

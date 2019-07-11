@@ -55,6 +55,7 @@ setup_environment_variables() {
 setup_all_the_bash_stuff() {
 	set +h  # Disable hashing path of executables
 	set -o vi  # Turn on vi-style editing for the command line
+	eval "$(dircolors)"  # Export LS_COLORS fanciness
 	setup_bash_it
 	setup_environment_variables
 	create_aliases
