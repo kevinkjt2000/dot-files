@@ -8,6 +8,6 @@ ln -sf "$(pwd)/asdf" "$HOME/.asdf"
 . "$HOME/.asdf/completions/asdf.bash"
 asdf plugin-add python
 asdf install
-python -m pip install --user dotdrop
+python -m pip install dotdrop
 dotdrop install
 ```
