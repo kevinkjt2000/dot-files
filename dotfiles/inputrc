@@ -1,1 +1,8 @@
+# Ignore case when using tab completion
+set completion-ignore-case On
+
+# Cutoff matching prefix with ellipses (e.g.: ...0.txt ...1.txt)
+set completion-prefix-display-length 3
+
+# Colorful tab completion
 set colored-stats On
