@@ -7,6 +7,10 @@ set nocompatible
 {%@@ include 'config/nvim/airline.vim' @@%}
 {%@@ include 'config/nvim/mappings.vim' @@%}
 
+" Automatically close preview window when appropriate
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 " Disable prettier default autoformat
 let g:prettier#autoformat = 0
 " Automatically format some web filetypes with prettier
