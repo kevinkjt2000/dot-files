@@ -20,7 +20,6 @@ call plug#begin(s:plugin_path)
 	Plug 'moll/vim-node'
 	Plug 'nathanalderson/yang.vim'
 	Plug 'nfvs/vim-perforce'
-	Plug 'nvie/vim-flake8'
 	Plug 'prettier/vim-prettier'
 	Plug 'python-mode/python-mode'
 	Plug 'sheerun/vim-polyglot'
