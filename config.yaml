@@ -91,9 +91,6 @@ dotfiles:
   f_tmux.conf:
     dst: ~/.tmux.conf
     src: tmux.conf
-  f_tmuxline-snapshot.conf:
-    dst: ~/.tmux/tmuxline-snapshot.conf
-    src: tmux/tmuxline-snapshot.conf
   f_vimrc:
     actions:
     - vim_plugins
@@ -155,7 +152,6 @@ profiles:
     - f_profile
     - f_pylintrc
     - f_tmux.conf
-    - f_tmuxline-snapshot.conf
     - f_vimrc
     - f_vscode_settings
     - f_xinitrc
