@@ -1,11 +1,12 @@
 actions:
-  bash_it: $HOME/.bash_it/install.sh --silent --no-modify-config
   pre:
     bash_it_submodules: git submodule update --init --recursive dotfiles/config/bash_it
     tmux_submodules: git submodule update --init --recursive dotfiles/tmux/plugins/tpm
-  tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
-    && ./update_plugins all
-  vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
+  post:
+    bash_it: $HOME/.bash_it/install.sh --silent --no-modify-config
+    tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
+      && ./update_plugins all
+    vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
 config:
   backup: false
   banner: true
