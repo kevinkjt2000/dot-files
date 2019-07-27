@@ -24,7 +24,6 @@ dotfiles:
     - bash_it_submodules
     - bash_it
     dst: ~/.bash_it
-    link: link
     src: config/bash_it
   d_ctags.d:
     dst: ~/.ctags.d
@@ -45,7 +44,6 @@ dotfiles:
     actions:
     - tmux_plugins
     dst: ~/.tmux/plugins/tpm
-    link: link
     src: tmux/plugins/tpm
   d_xmonad:
     dst: ~/.xmonad
@@ -99,7 +97,6 @@ dotfiles:
     src: config/nvim/init.vim
   f_vscode_settings:
     dst: ~/.config/Code - OSS/User/settings.json
-    link: link
     src: config/Code - OSS/User/settings.json
   f_xinitrc:
     dst: ~/.xinitrc
