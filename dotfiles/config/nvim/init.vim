@@ -43,7 +43,7 @@ silent! colorscheme tender
 
 " ALE options
 let g:ale_linters = {
-\   'cpp': ['clang', 'clangtidy', 'g++'],
+\   'cpp': ['clang', 'g++'],
 \   'haskell': ['ghc'],
 \   'python': ['flake8', 'pylint'],
 \   'typescript': ['tslint'],
