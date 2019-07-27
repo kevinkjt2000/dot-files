@@ -4,6 +4,7 @@ actions:
     tmux_submodules: git submodule update --init --recursive dotfiles/tmux/plugins/tpm
   post:
     bash_it: $HOME/.bash_it/install.sh --silent --no-modify-config
+    direnv_allow: direnv allow "$HOME/.envrc"
     tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
       && ./update_plugins all
     vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
@@ -119,6 +120,11 @@ dotfiles:
   f_inputrc:
     src: inputrc
     dst: ~/.inputrc
+  f_envrc:
+    actions:
+    - direnv_allow
+    src: envrc
+    dst: ~/.envrc
 profiles:
   Toxicity:
     dotfiles:
@@ -157,6 +163,7 @@ profiles:
     - f_xresources
     - f_xscreensaver
     - f_inputrc
+    - f_envrc
   reds-machine:
     include:
     - base_profile
