@@ -1,4 +1,4 @@
-let s:editor_root = expand(has('nvim') ? '~/.config/nvim' : '~/.vim')
+let s:editor_root = '~/.config/nvim'
 let s:plugin_path = s:editor_root . '/bundle'
 
 call plug#begin(s:plugin_path)
