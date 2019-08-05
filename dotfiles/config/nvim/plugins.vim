@@ -6,8 +6,10 @@ call plug#begin(s:plugin_path)
 	Plug 'burnettk/vim-angular'
 	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'deoplete-plugins/deoplete-go', { 'do': 'make' }
 	Plug 'dpc/vim-smarttabs'
 	Plug 'editorconfig/editorconfig-vim'
+	Plug 'godoctor/godoctor.vim', { 'do': ':GoDoctorInstall' }
 	Plug 'huawenyu/neogdb.vim'
 	Plug 'jacoborus/tender.vim'
 	Plug 'janko-m/vim-test'
@@ -23,6 +25,7 @@ call plug#begin(s:plugin_path)
 	Plug 'prettier/vim-prettier'
 	Plug 'python-mode/python-mode'
 	Plug 'sheerun/vim-polyglot'
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'slashmili/alchemist.vim'
 	Plug 'tpope/vim-abolish'
 	Plug 'tpope/vim-bundler'
@@ -34,7 +37,6 @@ call plug#begin(s:plugin_path)
 	Plug 'tpope/vim-repeat'
 	Plug 'tpope/vim-surround'
 	Plug 'tpope/vim-unimpaired'
-	Plug 'Valloric/YouCompleteMe', {'do': './install.py --clang-completer --racer-completer --system-libclang --system-boost'}
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'vim-scripts/groovyindent-unix'

@@ -47,6 +47,13 @@ let g:ale_linters = {
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('sources', {
+\ '_': ['ale', 'around', 'buffer', 'file', 'member'],
+\ 'go': ['ale', 'around', 'buffer', 'file', 'member', 'deoplete-go'],
+\})
+
 " Newer versions of GHC require linking dynamically now on Arch
 let g:ale_haskell_ghc_options = '-dynamic'
 
