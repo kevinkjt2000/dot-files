@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.42 on Wed Apr  3 11:04:55 2019.
+# Written by xscreensaver-demo 5.43 on Fri Aug 30 21:33:11 2019.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:05:00
@@ -34,8 +34,8 @@ grabVideoFrames:    False
 chooseRandomImages: False
 imageDirectory:	
 
-mode:		random
-selected:	229
+mode:		blank
+selected:	51
 
 textMode:	date
 textLiteral:	XScreenSaver
@@ -278,6 +278,8 @@ programs:								      \
 - GL: 				peepers -root				    \n\
 - GL: 				razzledazzle -root			    \n\
 -				vfeedback -root				    \n\
+  GL: 				deepstars -root				    \n\
+  GL: 				gravitywell -root			    \n\
 
 
 pointerPollTime:    0:00:05
