@@ -1,2 +1,6 @@
-eval "$(go env)"
-export GOPATH
+#!/usr/bin/env bash
+
+if [ -x "$(command -v go)" ]; then
+	eval "$(go env)"
+	export GOPATH
+fi
