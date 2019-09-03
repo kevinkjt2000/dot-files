@@ -1,14 +1,14 @@
 actions:
   pre:
-    bash_it_submodules: 'git submodule update --init --recursive dotfiles/config/bash_it'
-    tmux_submodules: 'git submodule update --init --recursive dotfiles/tmux/plugins/tpm'
+    bash_it_submodules: git submodule update --init --recursive dotfiles/config/bash_it
+    tmux_submodules: git submodule update --init --recursive dotfiles/tmux/plugins/tpm
   post:
-    asdf_install: 'cd "$HOME" && asdf install'
+    asdf_install: cd "$HOME" && asdf install
     bash_it: '"$HOME/.bash_it/install.sh" --silent --no-modify-config'
-    direnv_allow: 'direnv allow "$HOME/.envrc"'
-    tmux_plugins: 'cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
-      && ./update_plugins all'
-    vim_plugins: 'nvim +PlugClean! +PlugInstall +PlugUpdate +qall'
+    direnv_allow: direnv allow "{0}"
+    tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
+      && ./update_plugins all
+    vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
 config:
   backup: false
   banner: true
@@ -125,7 +125,7 @@ dotfiles:
     dst: ~/.inputrc
   f_envrc:
     actions:
-    - direnv_allow
+    - direnv_allow "{@@ dst @@}"
     src: envrc
     dst: ~/.envrc
   f_editorconfig:
