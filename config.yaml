@@ -128,6 +128,9 @@ dotfiles:
     - direnv_allow
     src: envrc
     dst: ~/.envrc
+  f_editorconfig:
+    src: editorconfig
+    dst: ~/.editorconfig
 profiles:
   Toxicity:
     dotfiles:
@@ -167,6 +170,7 @@ profiles:
     - f_xscreensaver
     - f_inputrc
     - f_envrc
+    - f_editorconfig
   reds-machine:
     include:
     - base_profile
