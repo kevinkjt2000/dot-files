@@ -6,3 +6,10 @@ set completion-prefix-display-length 3
 
 # Colorful tab completion
 set colored-stats On
+
+# Make command line editing feel more like vim
+set editing-mode vi
+
+# these are for vi-insert mode
+set keymap vi-insert
+Control-l: clear-screen
