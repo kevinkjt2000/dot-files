@@ -44,9 +44,6 @@ map <leader>i :set list!<CR>
 " Turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
-" Goto defintion of symbol in languages supported by YouCompleteMe
-nnoremap <Leader>] :YcmCompleter GoTo<CR>
-
 " Switch to alternate file using tpope/vim-projectionist
 nnoremap <leader>a :A<CR>
 
