@@ -10,6 +10,7 @@ call plug#begin(s:plugin_path)
 	Plug 'dpc/vim-smarttabs'
 	Plug 'editorconfig/editorconfig-vim'
 	Plug 'godoctor/godoctor.vim', { 'do': ':GoDoctorInstall' }
+	Plug 'honza/vim-snippets'
 	Plug 'huawenyu/neogdb.vim'
 	Plug 'jacoborus/tender.vim'
 	Plug 'janko-m/vim-test'
@@ -26,6 +27,7 @@ call plug#begin(s:plugin_path)
 	Plug 'python-mode/python-mode'
 	Plug 'sheerun/vim-polyglot'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'SirVer/ultisnips'
 	Plug 'slashmili/alchemist.vim'
 	Plug 'tpope/vim-abolish'
 	Plug 'tpope/vim-bundler'
