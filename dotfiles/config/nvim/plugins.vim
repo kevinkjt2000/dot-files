@@ -20,7 +20,7 @@ call plug#begin(s:plugin_path)
 	Plug 'junegunn/vim-easy-align'
 	Plug 'kevinkjt2000/robotframework-vim'
 	Plug 'kevinkjt2000/tmuxline.vim'
-	Plug 'mhinz/vim-mix-format'
+	" Plug 'mhinz/vim-mix-format'
 	Plug 'moll/vim-node'
 	Plug 'nathanalderson/yang.vim'
 	Plug 'nfvs/vim-perforce'
