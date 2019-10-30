@@ -15,6 +15,7 @@ autocmd BufWritePre *.js,*.ts,*.css,*.scss Prettier
 
 " Some python ropeproject settings
 let g:pymode_rope = 1
+let g:pymode_rope_completion = 0
 let g:pymode_rope_goto_definition_cmd = 'e'
 
 " Disable pymode linting, since ALE handles that
@@ -49,6 +50,8 @@ let g:ale_lint_on_insert_leave = 1
 
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Newer versions of GHC require linking dynamically now on Arch
 let g:ale_haskell_ghc_options = '-dynamic'
