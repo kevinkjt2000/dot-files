@@ -131,6 +131,12 @@ dotfiles:
   f_editorconfig:
     src: editorconfig
     dst: ~/.editorconfig
+  f_gpg.conf:
+    src: gnupg/gpg.conf
+    dst: ~/.gnupg/gpg.conf
+  f_sks-keyservers.netca.pem:
+    src: gnupg/sks-keyservers.netCA.pem
+    dst: ~/.gnupg/sks-keyservers.netCA.pem
 profiles:
   Toxicity:
     dotfiles:
@@ -155,6 +161,7 @@ profiles:
     - f_gemrc
     - f_gitconfig
     - f_gitignore_global
+    - f_gpg.conf
     - f_hgrc
     - f_lightson+
     - f_plug.vim
@@ -171,6 +178,7 @@ profiles:
     - f_inputrc
     - f_envrc
     - f_editorconfig
+    - f_sks-keyservers.netca.pem
   reds-machine:
     include:
     - base_profile
