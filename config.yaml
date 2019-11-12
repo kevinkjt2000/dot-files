@@ -57,9 +57,6 @@ dotfiles:
   f_bashrc:
     dst: ~/.bashrc
     src: bashrc
-  f_direnv:
-    dst: ~/.local/bin/direnv
-    src: local/bin/direnv
   f_emacs:
     dst: ~/.emacs
     src: emacs
@@ -156,7 +153,6 @@ profiles:
     - d_tmux
     - d_xmonad
     - f_bashrc
-    - f_direnv
     - f_emacs
     - f_gemrc
     - f_gitconfig
