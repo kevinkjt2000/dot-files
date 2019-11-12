@@ -5,6 +5,7 @@ main() {
 	setup_all_the_bash_stuff
 
 	add_to_path "$HOME/.local/bin"
+	add_to_path "/usr/local/sbin"
 
 	eval "$(direnv hook bash)"
 
@@ -47,10 +48,10 @@ setup_environment_variables() {
 }
 
 setup_all_the_bash_stuff() {
+	setup_bash_it
 	set +h  # Disable hashing path of executables
 	set -o vi  # Turn on vi-style editing for the command line
-	eval "$(dircolors)"  # Export LS_COLORS fanciness
-	setup_bash_it
+	command_exists dircolors && eval "$(dircolors)"  # Export LS_COLORS fanciness
 	setup_environment_variables
 	create_aliases
 }
