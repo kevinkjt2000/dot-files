@@ -6,6 +6,7 @@ actions:
     asdf_install: cd "$HOME" && [ -d .asdf ] && asdf install
     bash_it: '"$HOME/.bash_it/install.sh" --silent --no-modify-config'
     direnv_allow: direnv allow "{0}"
+    my_eyes_only_dir: chmod 700 "{{@@ dirname(_dotfile_abs_dst) @@}}"
     tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
       && ./update_plugins all
     vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
@@ -132,6 +133,8 @@ dotfiles:
     src: editorconfig
     dst: ~/.editorconfig
   f_gpg.conf:
+    actions:
+    - my_eyes_only_dir
     src: gnupg/gpg.conf
     dst: ~/.gnupg/gpg.conf
   f_sks-keyservers.netca.pem:
