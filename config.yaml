@@ -137,9 +137,6 @@ dotfiles:
     - my_eyes_only_dir
     src: gnupg/gpg.conf
     dst: ~/.gnupg/gpg.conf
-  f_sks-keyservers.netca.pem:
-    src: gnupg/sks-keyservers.netCA.pem
-    dst: ~/.gnupg/sks-keyservers.netCA.pem
 profiles:
   Toxicity:
     dotfiles:
@@ -181,7 +178,6 @@ profiles:
     - f_inputrc
     - f_envrc
     - f_editorconfig
-    - f_sks-keyservers.netca.pem
   reds-machine:
     include:
     - base_profile
