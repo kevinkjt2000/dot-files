@@ -20,7 +20,11 @@ main() {
 create_aliases() {
 	alias duchs="du -chs .[!.]* * | sort -rn"
 	alias grep="grep --color=auto --exclude=*~"
-	alias ls="ls --color=auto"
+	if command_exists reattach-to-user-namespace; then
+		alias ls="ls -G"
+	else
+		alias ls="ls --color=auto"
+	fi
 	command_exists thefuck && eval $(thefuck --alias shimatta)
 }
 
