@@ -9,7 +9,7 @@ main() {
 	test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && add_to_path /home/linuxbrew/.linuxbrew/bin
 	command_exists terraform && complete -C $(which terraform) terraform
 
-	eval "$(direnv hook bash)"
+	command_exists direnv && eval "$(direnv hook bash)"
 
 	if [ -d "$HOME/.asdf" ]; then
 		source "$HOME/.asdf/asdf.sh"
