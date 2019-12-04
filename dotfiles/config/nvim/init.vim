@@ -131,11 +131,9 @@ set foldlevelstart=10           " Open most folds by default
 set foldnestmax=10              " Guards against too many folds
 set foldmethod=indent           " Fold based on indent level
 
-set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/tmp
-set writebackup
+" Disable backups as I save enough anyway
+set nobackup
+set nowritebackup
 
 " No annoying sound on errors
 set noerrorbells
