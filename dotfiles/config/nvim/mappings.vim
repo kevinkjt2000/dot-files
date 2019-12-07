@@ -38,6 +38,9 @@ autocmd FileType python map <buffer> <F7> :call Flake8()<CR>
 autocmd FileType cpp map <buffer> <leader>d :GdbLocal confloc#me a.out ""<CR>
 autocmd FileType cpp map <buffer> <leader>b :GdbToggleBreak<CR><CR>
 
+" Bind tab to ultisnip expansion
+let g:UltiSnipsExpandTrigger="<tab>"
+
 " Toggle hiding whitespace characters
 map <leader>i :set list!<CR>
 
