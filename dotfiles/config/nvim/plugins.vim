@@ -23,7 +23,7 @@ call plug#begin(s:plugin_path)
 	Plug 'nathanalderson/yang.vim'
 	Plug 'nfvs/vim-perforce'
 	Plug 'prettier/vim-prettier'
-	Plug 'python-mode/python-mode'
+	Plug 'python-mode/python-mode', { 'branch': 'develop' }
 	Plug 'sheerun/vim-polyglot'
 	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 	Plug 'SirVer/ultisnips'
