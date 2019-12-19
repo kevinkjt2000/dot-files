@@ -6,6 +6,7 @@ main() {
 
 	add_to_path "$HOME/.local/bin"
 	add_to_path "/usr/local/sbin"
+	test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 	eval "$(direnv hook bash)"
 
