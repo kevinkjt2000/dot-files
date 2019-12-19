@@ -6,7 +6,7 @@ actions:
     asdf_install: cd "$HOME" && [ -d .asdf ] && asdf install
     bash_it: '"$HOME/.bash_it/install.sh" --silent --no-modify-config'
     direnv_allow: direnv allow "{0}"
-    gpg_agent_reload: gpg-connect-agent reloadagent /bye
+    gpg_agent_reload: gpgconf --kill gpg-agent
     my_eyes_only_dir: chmod 700 "{{@@ dirname(_dotfile_abs_dst) @@}}"
     tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
       && ./update_plugins all
@@ -141,6 +141,9 @@ dotfiles:
     - gpg_agent_reload
     src: gnupg/gpg-agent.conf
     dst: ~/.gnupg/gpg-agent.conf
+  f_default-python-packages:
+    src: default-python-packages
+    dst: ~/.default-python-packages
 profiles:
   Toxicity:
     dotfiles:
@@ -182,6 +185,7 @@ profiles:
     - f_inputrc
     - f_envrc
     - f_editorconfig
+    - f_default-python-packages
   reds-machine:
     include:
     - base_profile
