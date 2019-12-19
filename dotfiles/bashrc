@@ -47,6 +47,7 @@ setup_environment_variables() {
 	export GCC_COLORS="error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01"
 	export DOT_GITHUB_HOME="$XDG_CONFIG_HOME"
 	export PYTHON_CONFIGURE_OPTS="--enable-shared"  # Fix asdf python
+	command_exists keybase && export KEYBASE_DIR=$(keybase config get mountdir | sed -e 's/^"//' -e 's/"$//')
 }
 
 setup_all_the_bash_stuff() {
