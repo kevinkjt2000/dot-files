@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 if [ -x "$(command -v go)" ]; then
-	eval "$(go env)"
-	export GOPATH
+	export GOPATH="$(go env GOPATH)"
+	add_to_path "$GOPATH/bin"
 fi
