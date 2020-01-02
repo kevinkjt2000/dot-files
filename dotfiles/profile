@@ -1,5 +1,5 @@
 add_to_path() {
-	export PATH="$1":"$PATH"
+	[ -d "$1" ] && export PATH="$1":"$PATH"
 }
 export -f add_to_path
 
