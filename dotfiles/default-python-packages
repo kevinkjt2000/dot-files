@@ -1,5 +1,7 @@
 ansible
 dotdrop
 neovim
-openstackclient
+python-openstackclient
+python-heatclient
 poetry
+rerun
