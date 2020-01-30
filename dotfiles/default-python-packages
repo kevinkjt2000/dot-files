@@ -5,4 +5,5 @@ python-openstackclient
 python-heatclient
 poetry
 rerun
+rope
 virtualenv
