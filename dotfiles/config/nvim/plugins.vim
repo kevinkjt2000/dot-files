@@ -7,7 +7,7 @@ call plug#begin(s:plugin_path)
 	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'deoplete-plugins/deoplete-jedi', { 'do': 'python -m pip install -U jedi' }
-	Plug 'dpc/vim-smarttabs'
+	" Plug 'dpc/vim-smarttabs'
 	Plug 'editorconfig/editorconfig-vim'
 	Plug 'honza/vim-snippets'
 	Plug 'huawenyu/neogdb.vim'
