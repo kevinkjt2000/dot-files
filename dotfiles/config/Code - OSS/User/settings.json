@@ -1,6 +1,10 @@
 {
-    "window.titleBarStyle": "custom",
-    "window.zoomLevel": 2,
-    "editor.minimap.enabled": false,
-    "editor.formatOnSave": true
+  "window.titleBarStyle": "custom",
+  "window.zoomLevel": 2,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "[go]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  }
 }
