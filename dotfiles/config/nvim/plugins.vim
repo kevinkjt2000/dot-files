@@ -1,6 +1,13 @@
 let s:editor_root = '~/.config/nvim'
 let s:plugin_path = s:editor_root . '/bundle'
 
+function! InstallDeopleteDeps(info)
+	if a:info.status == 'installed' || a:info.force
+		!python -m pip install -U msgpack
+		UpdateRemotePlugins
+	endif
+endfunction
+
 call plug#begin(s:plugin_path)
 	Plug 'alvan/vim-closetag'
 	Plug 'burnettk/vim-angular'
@@ -25,7 +32,7 @@ call plug#begin(s:plugin_path)
 	Plug 'prettier/vim-prettier', { 'do': 'npm install -g prettier' }
 	Plug 'python-mode/python-mode', { 'branch': 'develop' }
 	Plug 'sheerun/vim-polyglot'
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim', { 'do': function('InstallDeopleteDeps') }
 	Plug 'SirVer/ultisnips'
 	Plug 'slashmili/alchemist.vim'
 	Plug 'tpope/vim-abolish'
