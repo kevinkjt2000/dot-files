@@ -11,7 +11,7 @@ set nocompatible
 let g:prettier#autoformat = 0
 " Automatically format some web filetypes with prettier
 " TODO: investigate using async version
-autocmd BufWritePre *.js,*.yaml,*.yml,*.ts,*.css,*.scss Prettier
+autocmd BufWritePre *.js,*.yaml,*.yml,*.ts,*.css,*.scss PrettierAsync
 
 " Some python ropeproject settings
 let g:pymode_rope = 1
