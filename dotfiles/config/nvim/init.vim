@@ -112,6 +112,14 @@ set wildignore+=*/.DS_Store/*
 
 set lazyredraw     " Don't redraw while executing macros (good performance config)
 
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
 set showmatch      " Highlight matching [{()}]
 
 set ignorecase     " Ignore case when searching
