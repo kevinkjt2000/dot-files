@@ -144,12 +144,16 @@ dotfiles:
   f_default-python-packages:
     src: default-python-packages
     dst: ~/.default-python-packages
+  f_autostart:
+    src: config/lxsession/LXDE/autostart
+    dst: ~/.config/lxsession/LXDE/autostart
 profiles:
   Toxicity:
     dotfiles:
     - f_asoundrc
     - f_nvidia-settings-rc
     - f_xorg.conf
+    - f_autostart
     include:
     - base_profile
   base_profile:
