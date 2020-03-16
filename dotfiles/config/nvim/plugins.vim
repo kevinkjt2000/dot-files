@@ -14,7 +14,7 @@ call plug#begin(s:plugin_path)
 	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'deoplete-plugins/deoplete-jedi', { 'do': 'python -m pip install -U jedi' }
-	" Plug 'dpc/vim-smarttabs'
+	Plug 'dense-analysis/ale'
 	Plug 'editorconfig/editorconfig-vim'
 	Plug 'honza/vim-snippets'
 	Plug 'huawenyu/neogdb.vim'
@@ -25,7 +25,6 @@ call plug#begin(s:plugin_path)
 	Plug 'junegunn/vim-easy-align'
 	Plug 'kevinkjt2000/robotframework-vim'
 	Plug 'kevinkjt2000/tmuxline.vim'
-	" Plug 'mhinz/vim-mix-format'
 	Plug 'moll/vim-node'
 	Plug 'nathanalderson/yang.vim'
 	Plug 'nfvs/vim-perforce'
@@ -48,5 +47,4 @@ call plug#begin(s:plugin_path)
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'vim-scripts/groovyindent-unix'
-	Plug 'w0rp/ale'
 call plug#end()
