@@ -46,15 +46,13 @@ dotfiles:
     src: config/openbox
   d_tmux:
     actions:
+    - tmux_submodules
     - tmux_plugins
     dst: ~/.tmux/plugins/tpm
     src: tmux/plugins/tpm
   d_xmonad:
     dst: ~/.xmonad
     src: xmonad
-  f_asoundrc:
-    dst: ~/.asoundrc
-    src: asoundrc
   f_bashrc:
     dst: ~/.bashrc
     src: bashrc
@@ -76,9 +74,6 @@ dotfiles:
   f_lightson+:
     dst: ~/.local/bin/lightson+
     src: local/bin/lightson+
-  f_nvidia-settings-rc:
-    dst: ~/.nvidia-settings-rc
-    src: nvidia-settings-rc
   f_plug.vim:
     dst: ~/.local/share/nvim/site/autoload/plug.vim
     src: local/share/nvim/site/autoload/plug.vim
@@ -147,15 +142,10 @@ dotfiles:
   f_autostart:
     src: config/lxsession/LXDE/autostart
     dst: ~/.config/lxsession/LXDE/autostart
+  f_bash_profile:
+    src: bash_profile
+    dst: ~/.bash_profile
 profiles:
-  Toxicity:
-    dotfiles:
-    - f_asoundrc
-    - f_nvidia-settings-rc
-    - f_xorg.conf
-    - f_autostart
-    include:
-    - base_profile
   base_profile:
     dotfiles:
     - d_bash_it
@@ -163,18 +153,19 @@ profiles:
     - d_fontconfig
     - d_git
     - d_github
-    - d_openbox
     - d_tmux
-    - d_xmonad
     - f_bashrc
+    - f_default-python-packages
+    - f_editorconfig
     - f_emacs
+    - f_envrc
     - f_gemrc
     - f_gitconfig
     - f_gitignore_global
-    - f_gpg.conf
     - f_gpg-agent.conf
+    - f_gpg.conf
     - f_hgrc
-    - f_lightson+
+    - f_inputrc
     - f_plug.vim
     - f_profile
     - f_pylintrc
@@ -182,14 +173,23 @@ profiles:
     - f_tool-versions
     - f_vimrc
     - f_vscode_settings
-    - f_xinitrc
+    - f_bash_profile
+  lxde_profile:
+    dotfiles:
+    - d_openbox
+    - f_autostart
+    - f_lightson+
+    - f_xorg.conf
     - f_xprofile
     - f_xresources
     - f_xscreensaver
-    - f_inputrc
-    - f_envrc
-    - f_editorconfig
-    - f_default-python-packages
   reds-machine:
+    include:
+    - base_profile
+    - lxde_profile
+  xmonad_profile:
+    dotfiles:
+    - d_xmonad
+  zeta:
     include:
     - base_profile

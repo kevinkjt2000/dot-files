@@ -1,6 +1,0 @@
-#!/bin/sh
-nvidia-settings --load-config-only
-eval "$(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)" &
-export SSH_AUTH_SOCK
-exec startlxde
-[ -f ~/.xprofile ] && . ~/.xprofile
