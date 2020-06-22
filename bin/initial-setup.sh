@@ -17,3 +17,5 @@ python -m pip install --upgrade pip
 python -m pip install --upgrade dotdrop
 asdf reshim python
 dotdrop install
+
+# TODO: automate adding asdf plugins and importing gpg key for nodejs
