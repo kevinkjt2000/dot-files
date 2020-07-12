@@ -47,4 +47,5 @@ call plug#begin(s:plugin_path)
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'vim-scripts/groovyindent-unix'
+	Plug 'wakatime/vim-wakatime'
 call plug#end()
