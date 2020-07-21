@@ -9,9 +9,8 @@ set nocompatible
 
 " Disable prettier default autoformat
 let g:prettier#autoformat = 0
-" Automatically format some web filetypes with prettier
-" TODO: investigate using async version
-autocmd BufWritePre *.js,*.yaml,*.yml,*.ts,*.css,*.scss PrettierAsync
+" Automatically format some filetypes with prettier
+autocmd BufWritePre *.cjs,*.js,*.jsx,*.yaml,*.yml,*.ts,*.tsx,*.css,*.scss PrettierAsync
 
 " Some python ropeproject settings
 let g:pymode_rope = 1
@@ -43,7 +42,7 @@ let g:ale_linters = {
 \   'cpp': ['clang', 'g++'],
 \   'haskell': ['ghc'],
 \   'python': ['flake8', 'pylint'],
-\   'typescript': ['tslint'],
+\   'typescript': ['eslint'],
 \}
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
