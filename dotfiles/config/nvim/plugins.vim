@@ -10,7 +10,6 @@ endfunction
 
 call plug#begin(s:plugin_path)
 	Plug 'alvan/vim-closetag'
-	Plug 'burnettk/vim-angular'
 	Plug 'ConradIrwin/vim-bracketed-paste'
 	Plug 'ctrlpvim/ctrlp.vim'
 	Plug 'deoplete-plugins/deoplete-jedi', { 'do': 'python -m pip install -U jedi' }

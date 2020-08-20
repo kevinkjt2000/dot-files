@@ -8,7 +8,8 @@ actions:
     direnv_allow: direnv allow "{0}"
     gpg_agent_reload: gpgconf --kill gpg-agent
     my_eyes_only_dir: chmod 700 "{{@@ dirname(_dotfile_abs_dst) @@}}"
-    tmux_plugins: cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
+    tmux_plugins:
+      cd "$HOME/.tmux/plugins/tpm/bin" && ./clean_plugins && ./install_plugins
       && ./update_plugins all
     vim_plugins: nvim +PlugClean! +PlugInstall +PlugUpdate +qall
 config:
@@ -25,8 +26,8 @@ config:
 dotfiles:
   d_bash_it:
     actions:
-    - bash_it_submodules
-    - bash_it
+      - bash_it_submodules
+      - bash_it
     dst: ~/.bash_it
     src: config/bash_it
   d_ctags.d:
@@ -46,8 +47,8 @@ dotfiles:
     src: config/openbox
   d_tmux:
     actions:
-    - tmux_submodules
-    - tmux_plugins
+      - tmux_submodules
+      - tmux_plugins
     dst: ~/.tmux/plugins/tpm
     src: tmux/plugins/tpm
   d_xmonad:
@@ -88,7 +89,7 @@ dotfiles:
     src: tmux.conf
   f_vimrc:
     actions:
-    - vim_plugins
+      - vim_plugins
     dst: ~/.config/nvim/init.vim
     src: config/nvim/init.vim
   f_vscode_settings:
@@ -111,7 +112,7 @@ dotfiles:
     src: xscreensaver
   f_tool-versions:
     actions:
-    - asdf_install
+      - asdf_install
     src: tool-versions
     dst: ~/.tool-versions
   f_inputrc:
@@ -119,7 +120,7 @@ dotfiles:
     dst: ~/.inputrc
   f_envrc:
     actions:
-    - direnv_allow "{@@ dst @@}"
+      - direnv_allow "{@@ dst @@}"
     src: envrc
     dst: ~/.envrc
   f_editorconfig:
@@ -127,13 +128,13 @@ dotfiles:
     dst: ~/.editorconfig
   f_gpg.conf:
     actions:
-    - my_eyes_only_dir
+      - my_eyes_only_dir
     src: gnupg/gpg.conf
     dst: ~/.gnupg/gpg.conf
   f_gpg-agent.conf:
     actions:
-    - my_eyes_only_dir
-    - gpg_agent_reload
+      - my_eyes_only_dir
+      - gpg_agent_reload
     src: gnupg/gpg-agent.conf
     dst: ~/.gnupg/gpg-agent.conf
   f_default-python-packages:
@@ -145,51 +146,62 @@ dotfiles:
   f_bash_profile:
     src: bash_profile
     dst: ~/.bash_profile
+  f_wakatime.cfg:
+    src: wakatime.cfg
+    dst: ~/.wakatime.cfg
+    trans_read: _gpg
+variables:
+  gpg_password: "lpass show --password 'gpg proton'"
+trans_read:
+  # TODO: find a replacement for <() since sh does not support it
+  # --batch --yes --passphrase-file <({{@@ gpg_password @@}})
+  _gpg: "gpg2 -q --for-your-eyes-only --no-tty -d {0} > {1}"
 profiles:
   base_profile:
     dotfiles:
-    - d_bash_it
-    - d_ctags.d
-    - d_fontconfig
-    - d_git
-    - d_github
-    - d_tmux
-    - f_bashrc
-    - f_default-python-packages
-    - f_editorconfig
-    - f_emacs
-    - f_envrc
-    - f_gemrc
-    - f_gitconfig
-    - f_gitignore_global
-    - f_gpg-agent.conf
-    - f_gpg.conf
-    - f_hgrc
-    - f_inputrc
-    - f_plug.vim
-    - f_profile
-    - f_pylintrc
-    - f_tmux.conf
-    - f_tool-versions
-    - f_vimrc
-    - f_vscode_settings
-    - f_bash_profile
+      - d_bash_it
+      - d_ctags.d
+      - d_fontconfig
+      - d_git
+      - d_github
+      - d_tmux
+      - f_bashrc
+      - f_default-python-packages
+      - f_editorconfig
+      - f_emacs
+      - f_envrc
+      - f_gemrc
+      - f_gitconfig
+      - f_gitignore_global
+      - f_gpg-agent.conf
+      - f_gpg.conf
+      - f_hgrc
+      - f_inputrc
+      - f_plug.vim
+      - f_profile
+      - f_pylintrc
+      - f_tmux.conf
+      - f_tool-versions
+      - f_vimrc
+      - f_vscode_settings
+      - f_bash_profile
+      - f_wakatime.cfg
   lxde_profile:
     dotfiles:
-    - d_openbox
-    - f_autostart
-    - f_lightson+
-    - f_xorg.conf
-    - f_xprofile
-    - f_xresources
-    - f_xscreensaver
+      - d_openbox
+      - f_autostart
+      - f_lightson+
+      - f_xorg.conf
+      - f_xprofile
+      - f_xresources
+      - f_xscreensaver
   reds-machine:
     include:
-    - base_profile
-    - lxde_profile
+      - base_profile
+      - lxde_profile
   xmonad_profile:
     dotfiles:
-    - d_xmonad
+      - d_xmonad
   zeta:
     include:
-    - base_profile
+      - base_profile
