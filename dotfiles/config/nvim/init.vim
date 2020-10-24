@@ -38,6 +38,10 @@ syntax enable
 silent! colorscheme tender
 
 " ALE options
+let g:ale_fixers = {
+\   'python': ['black'],
+\}
+let g:ale_fix_on_save = 1
 let g:ale_linters = {
 \   'cpp': ['clang', 'g++'],
 \   'haskell': ['ghc'],
@@ -54,6 +58,10 @@ inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 " Newer versions of GHC require linking dynamically now on Arch
 let g:ale_haskell_ghc_options = '-dynamic'
+
+" Workaround until https://github.com/dense-analysis/ale/pull/2963 is redone and merged
+let g:ale_python_black_executable = 'poetry'
+let g:ale_python_black_options = 'run black'
 
 " Fix https://github.com/phoenixframework/phoenix/issues/1165
 augroup AleGroup
