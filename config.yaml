@@ -153,9 +153,7 @@ dotfiles:
 variables:
   gpg_password: "lpass show --password 'gpg proton'"
 trans_read:
-  # TODO: find a replacement for <() since sh does not support it
-  # --batch --yes --passphrase-file <({{@@ gpg_password @@}})
-  _gpg: "gpg2 -q --for-your-eyes-only --no-tty -d {0} > {1}"
+  _gpg: "echo {{@@ gpg_password @@}} | gpg2 --batch --yes --passphrase-file /dev/stdin -q --for-your-eyes-only --no-tty -d {0} > {1}"
 profiles:
   base_profile:
     dotfiles:
