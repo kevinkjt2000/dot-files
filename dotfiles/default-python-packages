@@ -1,5 +1,6 @@
 ansible
 dotdrop
+jedi
 neovim
 python-openstackclient
 python-heatclient
@@ -7,3 +8,4 @@ poetry
 rerun
 rope
 virtualenv
+wheel
