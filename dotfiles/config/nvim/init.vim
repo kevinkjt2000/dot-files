@@ -100,6 +100,9 @@ set smarttab
 set autoindent
 set smartindent
 
+" Stop wrongly indenting when I type colons in yaml files
+autocmd FileType yaml setl indentkeys-=<:>
+
 " Configure invisible character alternates
 set listchars=tab:>-,extends:>,precedes:<
 
